@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
+    <title>Elemental Clash</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <h1>Elemental Clash</h1>
+    <h2>Rules:</h2>
+    <p><strong>Fire beats Earth:</strong> Fire can consume and overpower Earth.</p>
+    <p><strong>Earth beats Water:</strong> Earth can absorb or redirect the flow of Water.</p>
+    <p><strong>Water beats Fire:</strong> Water can extinguish Fire.</p>
+    <div class="selections">
+        <button class="selection" id="btn-fire">🔥</button>
+        <button class="selection" id="btn-earth"> 🌱</button>
+        <button class="selection" id="btn-water">💧</button>
+    </div>
+    <div class="results">
+        <div>
+            Player:
+            <span class="result-score">0</span>
+        </div>
+        <div>
+            Computer:
+            <span class="result-score">0</span>
+        </div>
+        <!-- <div class="result-selection winner">🔥</div>
+        <div class="result-selection">🌱</div> -->
+    </div>
     <script src="javascript.js"></script>
 </body>
 </html>
