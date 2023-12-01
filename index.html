@@ -7,28 +7,46 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Elemental Clash</h1>
-    <h2>Rules:</h2>
-    <p><strong>Fire beats Earth:</strong> Fire can consume and overpower Earth.</p>
-    <p><strong>Earth beats Water:</strong> Earth can absorb or redirect the flow of Water.</p>
-    <p><strong>Water beats Fire:</strong> Water can extinguish Fire.</p>
-    <div class="selections">
-        <button class="selection" id="btn-fire">🔥</button>
-        <button class="selection" id="btn-earth"> 🌱</button>
-        <button class="selection" id="btn-water">💧</button>
-    </div>
-    <div class="results">
-        <div>
-            Player:
-            <span class="result-score">0</span>
-        </div>
-        <div>
-            Computer:
-            <span class="result-score">0</span>
-        </div>
-        <!-- <div class="result-selection winner">🔥</div>
-        <div class="result-selection">🌱</div> -->
-    </div>
+    
+    <section class="game"> 
+        <!--Title -->
+        <h1 class="title">Elemental Clash</h1>
+        <h2>Rules:</h2>
+        <div><strong>Fire beats Earth:</strong> Fire can consume and overpower Earth.</div>
+        <div><strong>Earth beats Water:</strong> Earth can absorb or redirect the flow of Water.</div>
+        <div><strong>Water beats Fire:</strong> Water can extinguish Fire.</div>
+          
+        <!--Display Score of player and computer -->
+        <div class="score">   
+            <div class="playerScore"> 
+                <h2>Player</h2> 
+                <span class="player-count count">0</span>
+            </div>        
+            <div class="computerScore"> 
+                <h2>Computer</h2> 
+                <p class="computer-count count">0</p> 
+            </div> 
+        </div> 
+        
+        <div class="element">Choose your element</div> 
+          
+          <!--Number of moves left before game ends -->
+        <div class="movesLeft">Moves Left: 10 </div> 
+          
+          <!--Options available to player to play game -->
+        <div class="options"> 
+            <button class="selection" id="btn-fire">🔥</button>
+            <button class="selection" id="btn-earth"> 🌱</button>
+            <button class="selection" id="btn-water">💧</button>     
+        </div> 
+          
+          <!--Final result of game -->
+        <div class="result"></div> 
+          
+          <!--Reload the game -->
+        <button class="reload"></button> 
+    </section>
+
     <script src="javascript.js"></script>
 </body>
 </html>

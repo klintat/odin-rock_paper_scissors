@@ -1,85 +1,120 @@
-let playerScore = 0;
-let computerScore = 0;
-let roundWinner = '';
-const options = ["fire", "earth", "water"]
+// Games logic
+const game = () => {
+    let playerScore = 0;
+    let computerScore = 0;
+    let moves = 0;
+    
 
-function getComputerChoice() {
-    const randIndex = options[Math.floor(Math.random() * options.length)];
-    return randIndex;
+    // Function to play game (doing DOM manipulation to get hold of buttons and create options for player and computer)
+    const playGame = () => {
+        const btnFire = document.querySelector("#btn-fire");
+        const btnEarth = document.querySelector("#btn-earth");
+        const btnWater = document.querySelector("#btn-water");
+        const playerOptions = [btnFire, btnEarth, btnWater];
+        const computerOptions = ["fire", "earth", "water"];
+
+        // Function to start the game
+        playerOptions.forEach(option => {
+            option.addEventListener("click", function(){
+                const movesLeft = document.querySelector(".movesLeft");
+                moves++;
+                movesLeft.innerText = `Moves left: ${10-moves}`;
+
+                const computerChoice = computerOptions[Math.floor(Math.random() * computerOptions.length)];
+
+                // Function to check who wins
+                winner(this.innerText, computerChoice)
+
+                // Calling gameOver function after 10 moves
+                if(moves == 10) {
+                    gameOver(playerOptions, movesLeft);
+                }
+            })
+        })
+    }
+
+    // Function to decide winner
+    const winner = (player,computer) => {
+        const result = document.querySelector(".result");
+        const playerScoreBoard = document.querySelector(".player-count");
+        const computerScoreBoard = document.querySelector(".computer-count");
+        player = player.toLowerCase();
+        computer = computer.toLowerCase();
+        if (player === computer) {
+            result.textContent = "Tie"
+        } else if (player == "🔥") {
+            if (computer == "water"){
+                result.textContent = "Computer Won";
+                computerScore++;
+                computerScoreBoard.textContent = computerScore;
+            } else {
+                result.textContent = "Player Won"
+                playerScore++;
+                playerScoreBoard.textContent = playerScore;
+            }
+        }
+        else if(player == "🌱"){ 
+            if(computer == "fire"){ 
+                result.textContent = "Computer Won"; 
+                computerScore++; 
+                computerScoreBoard.textContent = computerScore; 
+            }else{ 
+                result.textContent = "Player Won"; 
+                playerScore++; 
+                playerScoreBoard.textContent = playerScore; 
+            } 
+        }
+        else if(player == "💧"){ 
+            if(computer == "earth"){ 
+                result.textContent = "Computer Won"; 
+                computerScore++; 
+                computerScoreBoard.textContent = computerScore; 
+            }else{ 
+                result.textContent = "Player Won"; 
+                playerScore++; 
+                playerScoreBoard.textContent = playerScore; 
+            } 
+        }  
+    }
+
+    // Game over function
+    const gameOver = (playerOptions, movesLeft) => {
+        const chooseMove = document.querySelector(".element");
+        const result = document.querySelector(".result");
+        const reloadBtn = document.querySelector(".reload");
+
+        playerOptions.forEach(option => {
+            option.style.display = "none";
+        })
+
+        chooseMove.innerText = 'Game Over!'
+        movesLeft.style.display = 'none'; 
+  
+        if(playerScore > computerScore){ 
+            result.style.fontSize = '2rem'; 
+            result.innerText = 'You Won The Game!'
+            result.style.color = '#308D46'; 
+        } 
+        else if(playerScore < computerScore){ 
+            result.style.fontSize = '2rem'; 
+            result.innerText = 'You Lost The Game'; 
+            result.style.color = 'red'; 
+        } 
+        else{ 
+            result.style.fontSize = '2rem'; 
+            result.innerText = 'Tie'; 
+            result.style.color = 'grey'
+        } 
+        reloadBtn.innerText = 'Restart'; 
+        reloadBtn.style.display = 'flex'
+        reloadBtn.addEventListener('click',() => { 
+            window.location.reload(); 
+       }) 
+    }
+
+    // Calling playGame function inside game
+    playGame();
 }
 
-let = btnFire = document.querySelector("#btn-fire");
-let = btnEarth = document.querySelector("#btn-earth");
-let = btnWater = document.querySelector("#btn-water");
-
-btnRock.addEventListener('click',function() {
-    alert("Fire!")
-});
-
-btnPaper.addEventListener('click',function() {
-    alert("Earth!")
-});
-
-btnScissors.addEventListener('click',function() {
-    alert("Water!")
-});
-
-// function getPlayerSelection() {
-//     let = btnRock = document.querySelector("#btn-rock");
-//     let = btnPaper = document.querySelector("#btn-paper");
-//     let = btnScissors = document.querySelector("#btn-scissors");
-
-//     btnRock.addEventListener('click',function() {
-//         alert("Rock!")
-//     });
-
-//     btnPaper.addEventListener('click',function() {
-//         alert("Paper!")
-//     });
-
-//     btnScissors.addEventListener('click',function() {
-//         alert("Scissors!")
-//     });
-// }
-
-function capitalize(word) {
-    let capitalized = word.charAt(0).toUpperCase()
-    + word.slice(1).toLowerCase();
-    return capitalized;
-}
-
-function playRound() {
-//    let playerSelection = getPlayerSelection();
-   let computerSelection = getComputerChoice();
-
-   if (playerSelection === options[0] && computerSelection === options[2] || 
-    playerSelection === options[1] && computerSelection === options[0] || 
-    playerSelection === options[2] && computerSelection === options[1]) {
-    console.log(`Round won! ${capitalize(playerSelection)} beats ${computerSelection}!`)
-    playerScore++
-   } else if (playerSelection === options[0] && computerSelection === options[1] ||
-    playerSelection === options[1] && computerSelection === options[2] ||
-    playerSelection === options[2] && computerSelection === options[0]) {
-    console.log(`Round lost! ${capitalize(computerSelection)} beats ${playerSelection}!`)
-    computerScore++
-   } else if (playerSelection === computerSelection) {
-    console.log("Tie!")
-   };
-}
-
-// function game() {
-
-//     for (i = 0; i < 5; i++) {
-//         playRound();
-//     }
-
-//     if (playerScore > computerScore) {
-//         console.log("You win!")
-//     } else if (playerScore < computerScore) {
-//         console.log("Computer wins!")
-//     } else {
-//         console.log("Draw!")
-//     }
-// }
-
-// game()
+// Calling game function
+game();
