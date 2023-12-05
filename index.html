@@ -7,20 +7,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
     <section class="game"> 
         <!--Title -->
-        <h1 class="title">Elemental Clash</h1>
-        <h2>Rules:</h2>
-        <div><strong>Fire beats Earth:</strong> Fire can consume and overpower Earth.</div>
-        <div><strong>Earth beats Water:</strong> Earth can absorb or redirect the flow of Water.</div>
-        <div><strong>Water beats Fire:</strong> Water can extinguish Fire.</div>
-          
+        <h1 class="title-logo"><img src="img/logo-text.png" alt="Big games name 'Element Clash' in red colors" class="img-logo"></h1>
         <!--Display Score of player and computer -->
         <div class="score">   
             <div class="playerScore"> 
                 <h2>Player</h2> 
-                <span class="player-count count">0</span>
+                <p class="player-count count">0</p>
             </div>        
             <div class="computerScore"> 
                 <h2>Computer</h2> 
@@ -34,12 +28,20 @@
         <div class="movesLeft">Moves Left: 10 </div> 
           
           <!--Options available to player to play game -->
-        <div class="options"> 
-            <button class="selection" id="btn-fire">🔥</button>
-            <button class="selection" id="btn-earth"> 🌱</button>
-            <button class="selection" id="btn-water">💧</button>     
+        <div class="options">
+          <div class="option-container-1">
+            <button class="selection" id="btn-fire" data-option="fire">&#128293</button>
+            <div class="rules">Fire beats Earth</div>
+          </div> 
+          <div class="option-container-2">
+            <button class="selection" id="btn-earth" data-option="earth">&#127793</button>
+            <div class="rules">Earth beats Water</div>
+          </div>
+          <div class="option-container-3">
+            <button class="selection" id="btn-water" data-option="water">&#128167</button>
+            <div class="rules">Water beats Fire</div>
+          </div>
         </div> 
-          
           <!--Final result of game -->
         <div class="result"></div> 
           

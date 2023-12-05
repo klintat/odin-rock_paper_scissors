@@ -3,7 +3,7 @@ const game = () => {
     let playerScore = 0;
     let computerScore = 0;
     let moves = 0;
-    
+
 
     // Function to play game (doing DOM manipulation to get hold of buttons and create options for player and computer)
     const playGame = () => {
@@ -15,7 +15,7 @@ const game = () => {
 
         // Function to start the game
         playerOptions.forEach(option => {
-            option.addEventListener("click", function(){
+            option.addEventListener("click", function(event){
                 const movesLeft = document.querySelector(".movesLeft");
                 moves++;
                 movesLeft.innerText = `Moves left: ${10-moves}`;
@@ -23,7 +23,7 @@ const game = () => {
                 const computerChoice = computerOptions[Math.floor(Math.random() * computerOptions.length)];
 
                 // Function to check who wins
-                winner(this.innerText, computerChoice)
+                winner(event.target.dataset.option, computerChoice)
 
                 // Calling gameOver function after 10 moves
                 if(moves == 10) {
@@ -42,7 +42,7 @@ const game = () => {
         computer = computer.toLowerCase();
         if (player === computer) {
             result.textContent = "Tie"
-        } else if (player == "🔥") {
+        } else if (player == "fire") {
             if (computer == "water"){
                 result.textContent = "Computer Won";
                 computerScore++;
@@ -53,7 +53,7 @@ const game = () => {
                 playerScoreBoard.textContent = playerScore;
             }
         }
-        else if(player == "🌱"){ 
+        else if(player == "earth"){ 
             if(computer == "fire"){ 
                 result.textContent = "Computer Won"; 
                 computerScore++; 
@@ -64,7 +64,7 @@ const game = () => {
                 playerScoreBoard.textContent = playerScore; 
             } 
         }
-        else if(player == "💧"){ 
+        else if(player == "water"){ 
             if(computer == "earth"){ 
                 result.textContent = "Computer Won"; 
                 computerScore++; 
@@ -82,28 +82,28 @@ const game = () => {
         const chooseMove = document.querySelector(".element");
         const result = document.querySelector(".result");
         const reloadBtn = document.querySelector(".reload");
+        const optionsAll = document.querySelector(".options");
 
-        playerOptions.forEach(option => {
-            option.style.display = "none";
-        })
+        optionsAll.style.display = "none";
 
         chooseMove.innerText = 'Game Over!'
-        movesLeft.style.display = 'none'; 
+        movesLeft.style.display = 'none';
+        
   
         if(playerScore > computerScore){ 
             result.style.fontSize = '2rem'; 
             result.innerText = 'You Won The Game!'
-            result.style.color = '#308D46'; 
+            result.style.color = '#001f3f'; 
         } 
         else if(playerScore < computerScore){ 
             result.style.fontSize = '2rem'; 
             result.innerText = 'You Lost The Game'; 
-            result.style.color = 'red'; 
+            result.style.color = '#F93B3A'; 
         } 
         else{ 
             result.style.fontSize = '2rem'; 
             result.innerText = 'Tie'; 
-            result.style.color = 'grey'
+            result.style.color = '#5A5A5A'
         } 
         reloadBtn.innerText = 'Restart'; 
         reloadBtn.style.display = 'flex'
