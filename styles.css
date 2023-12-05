@@ -1,0 +1,138 @@
+:root {
+    --neongreen: #9cc90c;
+    --darkblue: #001f3f;
+    --orange: #f98e02;
+    --border-1: #AA2323;
+    --border-2: #23AA23;
+    --border-3: #23AAAA;
+    --container-1: #FFFFC2;
+    --container-2: #C2FFC2;
+    --container-3: #C2FFFF;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: var(--neongreen);
+    color: var(--darkblue);
+}
+
+.score, .element, .movesLeft, .rules, .result, .reload {
+    font-family: "Goudy Old Style", serif; 
+    font-size: 1.5rem;
+    font-variant: small-caps; 
+    font-weight: 700;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: auto;
+    margin-bottom: 1.9rem;
+}
+
+.options {
+    display: grid;
+    justify-content: center;
+    grid-gap: 7rem;
+    max-width: 750px;
+    grid-template-columns: 10rem 10rem 10rem;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 1.9rem;
+    text-align: center;
+}
+
+.selection {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 6rem;
+    transition: 100ms;
+}
+
+.selection:hover {
+    transform: scale(1.2);
+}
+
+.score {
+    display: flex;
+    width: 30vw;
+    justify-content: space-evenly;
+    font-size: 2rem;
+    margin-bottom: 7rem;
+}
+
+.count {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.element {
+    font-size: 1.5rem;
+}
+
+.movesLeft {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.rules {
+    text-align: center;
+    font-weight: 700;
+    background: inherit;
+}
+
+.element {
+    font-size: 2rem; 
+    font-weight: bold;
+}
+
+.option-container-1, .option-container-2, .option-container-3 {
+    border: solid 0.19rem;
+}
+
+.option-container-1 {
+    border-color: var(--border-1);
+    background: var(--container-1)
+}
+
+.option-container-2 {
+    border-color: var(--border-2);
+    background: var(--container-2)
+}
+
+.option-container-3 {
+    border-color: var(--border-3);
+    background: var(--container-3);
+}
+
+.reload { 
+    display: none; 
+    margin-top: 2rem; 
+    padding: 1rem; 
+    background: var(--orange); 
+    outline: none; 
+    border: none; 
+    border-radius: 0.7rem; 
+    cursor: pointer;
+    color: var(--darkblue); 
+} 
+
+.result { 
+    margin-top: 1.2em; 
+    font-size: 1.2rem; 
+}

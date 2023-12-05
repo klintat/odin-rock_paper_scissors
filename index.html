@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elemental Clash</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="game"> 
+        <!--Title -->
+        <h1 class="title-logo"><img src="img/logo-text.png" alt="Big games name 'Element Clash' in red colors" class="img-logo"></h1>
+        <!--Display Score of player and computer -->
+        <div class="score">   
+            <div class="playerScore"> 
+                <h2>Player</h2> 
+                <p class="player-count count">0</p>
+            </div>        
+            <div class="computerScore"> 
+                <h2>Computer</h2> 
+                <p class="computer-count count">0</p> 
+            </div> 
+        </div> 
+        
+        <div class="element">Choose your element</div> 
+          
+          <!--Number of moves left before game ends -->
+        <div class="movesLeft">Moves Left: 10 </div> 
+          
+          <!--Options available to player to play game -->
+        <div class="options">
+          <div class="option-container-1">
+            <button class="selection" id="btn-fire" data-option="fire">&#128293</button>
+            <div class="rules">Fire beats Earth</div>
+          </div> 
+          <div class="option-container-2">
+            <button class="selection" id="btn-earth" data-option="earth">&#127793</button>
+            <div class="rules">Earth beats Water</div>
+          </div>
+          <div class="option-container-3">
+            <button class="selection" id="btn-water" data-option="water">&#128167</button>
+            <div class="rules">Water beats Fire</div>
+          </div>
+        </div> 
+          <!--Final result of game -->
+        <div class="result"></div> 
+          
+          <!--Reload the game -->
+        <button class="reload"></button> 
+    </section>
+
+    <script src="javascript.js"></script>
+</body>
+</html>
