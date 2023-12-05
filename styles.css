@@ -2,12 +2,12 @@
     --neongreen: #9cc90c;
     --darkblue: #001f3f;
     --orange: #f98e02;
-    --border-1: rgb(170, 35, 35);
-    --border-2: rgb(35, 170, 35);
-    --border-3: rgb(35, 170, 170);
-    --container-1: rgb(255, 255, 194);
-    --container-2: rgb(194, 255, 194);
-    --container-3: rgb(194, 255, 255);
+    --border-1: #AA2323;
+    --border-2: #23AA23;
+    --border-3: #23AAAA;
+    --container-1: #FFFFC2;
+    --container-2: #C2FFC2;
+    --container-3: #C2FFFF;
 }
 
 * {
