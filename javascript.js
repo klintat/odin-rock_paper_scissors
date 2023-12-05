@@ -4,7 +4,6 @@ const game = () => {
     let computerScore = 0;
     let moves = 0;
 
-
     // Function to play game (doing DOM manipulation to get hold of buttons and create options for player and computer)
     const playGame = () => {
         const btnFire = document.querySelector("#btn-fire");
@@ -27,7 +26,7 @@ const game = () => {
 
                 // Calling gameOver function after 10 moves
                 if(moves == 10) {
-                    gameOver(playerOptions, movesLeft);
+                    gameOver(movesLeft);
                 }
             })
         })
@@ -78,7 +77,7 @@ const game = () => {
     }
 
     // Game over function
-    const gameOver = (playerOptions, movesLeft) => {
+    const gameOver = (movesLeft) => {
         const chooseMove = document.querySelector(".element");
         const result = document.querySelector(".result");
         const reloadBtn = document.querySelector(".reload");
